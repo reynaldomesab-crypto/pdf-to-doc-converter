@@ -1,0 +1,65 @@
+{
+  "name": "pdf-to-doc-converter",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Professional multi-platform PDF (scanned images) to DOCX converter with OCR support for 10+ languages",
+  "author": "reynaldomesab-crypto <reynaldomesab@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reynaldomesab-crypto/pdf-to-doc-converter.git"
+  },
+  "homepage": "https://github.com/reynaldomesab-crypto/pdf-to-doc-converter#readme",
+  "bugs": {
+    "url": "https://github.com/reynaldomesab-crypto/pdf-to-doc-converter/issues"
+  },
+  "keywords": [
+    "ocr",
+    "pdf",
+    "docx",
+    "tauri",
+    "capacitor",
+    "pymupdf",
+    "tesseract",
+    "rust",
+    "react",
+    "python"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter=web dev",
+    "dev:web": "pnpm --filter=web dev",
+    "dev:desktop": "pnpm --filter=desktop tauri dev",
+    "dev:mobile": "pnpm --filter=mobile cap run android",
+    "dev:api": "pnpm --filter=backend dev",
+    "build": "pnpm --filter=web build && pnpm --filter=desktop build && pnpm --filter=mobile build",
+    "build:web": "pnpm --filter=web build",
+    "build:desktop": "pnpm --filter=desktop build",
+    "build:mobile": "pnpm --filter=mobile build",
+    "build:api": "pnpm --filter=backend build",
+    "build:all": "pnpm run build",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky install",
+    "changeset": "changeset",
+    "version": "changeset version && pnpm install",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.0",
+    "@changesets/cli": "^2.27.7",
+    "@types/node": "^20.14.0",
+    "husky": "^9.0.11",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  },
+  "packageManager": "pnpm@9.4.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}

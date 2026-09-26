@@ -1,0 +1,34 @@
+[package]
+name = "pdf-ocr-converter"
+version = "0.1.0"
+description = "Professional PDF to DOCX converter with OCR"
+authors = ["reynaldomesab-crypto <reynaldomesab@gmail.com>"]
+license = "MIT"
+edition = "2021"
+repository = "https://github.com/reynaldomesab-crypto/pdf-to-doc-converter"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [
+    "macos-private-api",
+    "dialog-all",
+    "fs-all",
+    "opener",
+    "os-all",
+    "shell-all",
+    "updater",
+] }
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
+tauri-plugin-opener = "2"
+tauri-plugin-os = "2"
+tauri-plugin-shell = "2"
+tauri-plugin-updater = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }

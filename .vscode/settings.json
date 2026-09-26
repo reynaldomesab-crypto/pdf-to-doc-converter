@@ -1,0 +1,35 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "editor.defaultFormatter": "biomejs.biome",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "eslint.enable": false,
+    "biome.enable": true,
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/build": true,
+      "**/.turbo": true,
+      "**/target": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "biomejs.biome",
+      "tauri-apps.tauri-vscode",
+      "capacitor.capacitor-vscode",
+      "ms-python.python",
+      "rust-lang.rust-analyzer",
+      "bradlc.vscode-tailwindcss",
+      "esbenp.prettier-vscode"
+    ]
+  }
+}

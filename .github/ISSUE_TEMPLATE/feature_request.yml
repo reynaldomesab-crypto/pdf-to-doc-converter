@@ -1,0 +1,68 @@
+name: feature_request
+description: Suggest an idea for this project
+title: "[FEATURE]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! Please fill out the form below.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? Is your feature request related to a problem?
+      placeholder: I'm always frustrated when...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like.
+      placeholder: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative solutions or features you've considered.
+      placeholder: Any alternative solutions or workarounds you've considered?
+    validations:
+      required: false
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Target Platform(s)
+      description: Which platform(s) should this feature be available on?
+      options:
+        - Web
+        - Windows Desktop
+        - Linux Desktop
+        - macOS Desktop
+        - Android Mobile
+        - iOS Mobile (future)
+        - All Platforms
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature to you?
+      options:
+        - Low (nice to have)
+        - Medium (would improve workflow)
+        - High (blocking my use case)
+        - Critical (cannot use app without it)
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context, mockups, or screenshots about the feature request here.
+      placeholder: Any other information, mockups, or references.
+    validations:
+      required: false

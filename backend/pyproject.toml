@@ -1,0 +1,60 @@
+[project]
+name = "pdf-ocr-converter-api"
+version = "0.1.0"
+description = "FastAPI backend for PDF OCR to DOCX conversion"
+readme = "README.md"
+authors = [{name = "reynaldomesab-crypto", email = "reynaldomesab@gmail.com"}]
+license = {text = "MIT"}
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+]
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.29.0",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.3.0",
+    "python-multipart>=0.0.9",
+    "pymupdf>=1.23.0",
+    "pdf2docx>=0.5.0",
+    "pillow>=10.0.0",
+    "python-magic>=0.4.27",
+    "httpx>=0.27.0",
+    "python-dotenv>=1.0.0",
+    "loguru>=0.7.0",
+]
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+    "httpx>=0.27.0",
+    "ruff>=0.5.0",
+    "mypy>=1.9.0",
+    "types-python-magic>=0.4.0",
+]
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+select = ["E", "F", "I", "W", "UP", "B", "C4", "SIM", "TID", "ARG", "PTH", "ERA", "PL", "TRY", "PT", "Q", "RUF", "RET", "SLF", "NPY"]
+ignore = ["S101", "S311", "S603", "S607"]
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

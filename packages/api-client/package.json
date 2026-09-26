@@ -1,0 +1,24 @@
+{
+  "name": "@pdf-ocr-converter/api-client",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "generate": "openapi-typescript ../backend/openapi.json -o ./src/schema.ts"
+  },
+  "dependencies": {
+    "openapi-fetch": "^0.11.0",
+    "@pdf-ocr-converter/types": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "openapi-typescript": "^7.0.0"
+  }
+}

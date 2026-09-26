@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Web",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/apps/web/src"
+    },
+    {
+      "name": "Debug Desktop",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/apps/desktop/src-tauri/target/debug/pdf-ocr-converter",
+      "args": [],
+      "cwd": "${workspaceFolder}/apps/desktop/src-tauri"
+    },
+    {
+      "name": "Debug Backend",
+      "type": "python",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["src.main:app", "--reload", "--port", "8000"],
+      "cwd": "${workspaceFolder}/backend",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/backend/src"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack Debug",
+      "configurations": ["Debug Web", "Debug Backend"],
+      "stopAll": true
+    }
+  ]
+}
