@@ -97,7 +97,7 @@ jobs:
         working-directory: ./apps/web
 
       - name: Upload web build artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: web-dist
           path: apps/web/dist
@@ -175,7 +175,7 @@ jobs:
           TAURI_TARGET: ${{ matrix.target }}
 
       - name: Upload desktop artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: desktop-${{ matrix.os }}
           path: apps/desktop/src-tauri/target/release/bundle/
@@ -221,14 +221,14 @@ jobs:
         working-directory: ./apps/mobile
 
       - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: mobile-android
           path: apps/mobile/android/app/build/outputs/apk/release/*.apk
           retention-days: 7
 
       - name: Upload AAB artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: mobile-android-aab
           path: apps/mobile/android/app/build/outputs/bundle/release/*.aab
