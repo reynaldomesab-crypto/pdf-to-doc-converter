@@ -30,7 +30,7 @@
     "@capacitor/haptics": "^6.0.0",
     "@capacitor/preferences": "^6.0.0",
     "@capacitor/app": "^6.0.0",
-    "@capacitor/notification": "^6.0.0",
+    "@capacitor/local-notifications": "^6.0.0",
     "@ionic/core": "^8.0.0",
     "@pdf-ocr-converter/ui": "workspace:*",
     "@pdf-ocr-converter/types": "workspace:*",

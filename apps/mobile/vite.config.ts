@@ -21,7 +21,7 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom', 'zustand'],
           ui: ['lucide-react', 'sonner', 'clsx', 'tailwind-merge'],
-          capacitor: ['@capacitor/core', '@capacitor/android', '@capacitor/ios', '@capacitor/camera', '@capacitor/filesystem', '@capacitor/share', '@capacitor/haptics', '@capacitor/preferences', '@capacitor/app', '@capacitor/notification'],
+          capacitor: ['@capacitor/core', '@capacitor/android', '@capacitor/ios', '@capacitor/camera', '@capacitor/filesystem', '@capacitor/share', '@capacitor/haptics', '@capacitor/preferences', '@capacitor/app', '@capacitor/local-notifications'],
           ionic: ['@ionic/core'],
         },
       },
