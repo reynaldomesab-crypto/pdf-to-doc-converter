@@ -31,7 +31,7 @@
     "@capacitor/preferences": "^6.0.0",
     "@capacitor/app": "^6.0.0",
     "@capacitor/local-notifications": "^6.0.0",
-    "@ionic/core": "^8.0.0",
+    "@ionic/core": "^9.0.5",
     "@pdf-ocr-converter/ui": "workspace:*",
     "@pdf-ocr-converter/types": "workspace:*",
     "@pdf-ocr-converter/utils": "workspace:*",
