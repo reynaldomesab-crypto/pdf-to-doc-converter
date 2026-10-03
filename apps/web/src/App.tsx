@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Button } from '@pdf-ocr-converter/ui';
-import { Upload, FileText, Languages, Settings, Download, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
-import { cn } from '@pdf-ocr-converter/utils';
+import { Button, cn } from '@pdf-ocr-converter/ui';
+import { downloadBlob } from '@pdf-ocr-converter/utils';
+import { convertPdf, downloadResult } from '@pdf-ocr-converter/api-client';
+import { Upload, FileText, Languages, Settings, Download, CheckCircle } from 'lucide-react';
 
 const SUPPORTED_LANGUAGES = [
   { code: 'spa', name: 'Spanish', native: 'Español', flag: '🇪🇸' },
@@ -84,7 +85,7 @@ function App() {
     );
   };
 
-  const simulateProcessing = async () => {
+  const processFile = async () => {
     if (!file) return;
     
     setError(null);
@@ -98,11 +99,27 @@ function App() {
       setCurrentStep(prev => Math.min(prev + 1, STEPS.length - 1));
     }
     
-    // Simulate success
-    setResult({
-      url: '#',
-      fileName: `converted_${file.name.replace('.pdf', '.docx')}`,
-    });
+    try {
+      // Call the backend API for actual conversion
+      const result = await convertPdf(file, {
+        languages: selectedLanguages,
+        outputFormat,
+        quality,
+        preserveLayout,
+      });
+      
+      if (result.downloadUrl) {
+        setResult({
+          url: result.downloadUrl,
+          fileName: result.fileName,
+        });
+      } else {
+        throw new Error('No download URL returned from server');
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Conversion failed');
+      setCurrentStep(0);
+    }
   };
 
   const reset = () => {
@@ -229,7 +246,7 @@ function App() {
               <Button 
                 className="w-full" 
                 size="lg" 
-                onClick={simulateProcessing}
+                onClick={processFile}
                 disabled={!file}
               >
                 Start Conversion
@@ -273,10 +290,19 @@ function App() {
                       <p className="text-sm text-muted-foreground">DOCX Document</p>
                     </div>
                   </div>
-                  <Button onClick={() => { /* download */ }}>
-                    <Download className="mr-2 h-4 w-4" />
-                    Download
-                  </Button>
+<Button onClick={async () => {
+                      if (!result?.url) return;
+                      try {
+                        const response = await downloadResult(result.url);
+                        downloadBlob(response, result.fileName);
+                      } catch (err) {
+                        console.error('Download failed:', err);
+                        setError('Failed to download file');
+                      }
+                    }}>
+                      <Download className="mr-2 h-4 w-4" />
+                      Download
+                    </Button>
                 </div>
               </div>
 
